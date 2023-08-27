@@ -4,8 +4,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.xianyu.client.UserClient;
 import com.xianyu.client.common.constant.FxmlConstant;
 import com.xianyu.client.helper.AlertHelper;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -18,6 +23,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
+@Component
 public class LoginController implements Initializable {
 
     @FXML
@@ -31,6 +37,8 @@ public class LoginController implements Initializable {
 
     Window window;
 
+    @Autowired
+    private UserClient userClient;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -47,6 +55,7 @@ public class LoginController implements Initializable {
                     "Invalid username and password.");
             return;
         }
+        userClient.login();
         Stage stage = (Stage) loginButton.getScene().getWindow();
         stage.close();
         Parent root = FXMLLoader.load(getClass().getResource(FxmlConstant.HOME_FXML));

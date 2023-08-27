@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: xianyu-client
+  cloud:
+      nacos:
+        discovery:
+          server-addr: 124.71.181.121:8848
