@@ -7,6 +7,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.ConfigurableApplicationContext;
 
 import com.xianyu.client.common.constant.FxmlConstant;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,8 +15,8 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-@EnableFeignClients(basePackages = {"com.xianyu.client"})
-@EnableDiscoveryClient
+@EnableFeignClients(basePackages = {"com.xianyu.client.feign"})
+//@EnableDiscoveryClient
 @SpringBootApplication
 public class MainApplication extends Application {
 

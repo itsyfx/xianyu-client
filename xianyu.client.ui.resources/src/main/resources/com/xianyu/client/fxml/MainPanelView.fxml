@@ -8,12 +8,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1350.0" style="-fx-background-color: grey;"
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1350.0" style="-fx-background-color: #F3F2F1;"
             xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.xianyu.client.controller.MainPanelController">
-   <left>
-      <VBox prefHeight="601.0" prefWidth="160.0" style="-fx-background-color: #404040;" BorderPane.alignment="CENTER">
+   <top>
+      <HBox BorderPane.alignment="CENTER_LEFT">
          <children>
-            <Button fx:id="addPurchase" mnemonicParsing="false" onAction="#loadHomeView" prefHeight="30.0" prefWidth="189.0" style="-fx-text-fill: #f0f0f0;" styleClass="bt" stylesheets="/com/xianyu/client/css/mainpanel.css" textAlignment="JUSTIFY" visible="false">
+            <Button fx:id="procurement" onAction="#loadProcurementView"   text="procurement" style = "-fx-border-color: #F3F2F1;-fx-background-color: #F3F2F1;">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
@@ -21,123 +21,40 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="purchaseDetail" mnemonicParsing="false" onAction="#loadHomeView" prefHeight="30.0" prefWidth="185.0" style="-fx-text-fill: #f0f0f0;" styleClass="bt" stylesheets="/com/xianyu/client/css/mainpanel.css" textAlignment="JUSTIFY" visible="false">
+            <Button fx:id="maintenance" onAction="#loadMaintenancetView" style = "-fx-border-color: #F3F2F1;-fx-background-color: #F3F2F1;"  text="maintenance">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="home" mnemonicParsing="false" onAction="#loadHomeView" prefHeight="30.0" prefWidth="173.0" style="-fx-text-fill: #f0f0f0;" styleClass="bt" stylesheets="/com/xianyu/client/css/mainpanel.css" text="Home" textAlignment="JUSTIFY">
-               <font>
-                  <Font name="System Bold" size="17.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button fx:id="page01" mnemonicParsing="false" onAction="#loadPage01View" prefHeight="30.0" prefWidth="172.0" style="-fx-text-fill: #f0f0f0;" styleClass="bt" stylesheets="/com/xianyu/client/css/mainpanel.css" text="Page 01" textAlignment="JUSTIFY">
-               <font>
-                  <Font name="System Bold" size="17.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button fx:id="page02" mnemonicParsing="false" onAction="#loadPage02View" prefHeight="30.0" prefWidth="168.0" style="-fx-text-fill: #f0f0f0;" styleClass="bt" stylesheets="/com/xianyu/client/css/mainpanel.css" text="Page 02" textAlignment="JUSTIFY">
-               <font>
-                  <Font name="System Bold" size="17.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button fx:id="page03" mnemonicParsing="false" onAction="#loadPage03View" prefHeight="30.0" prefWidth="168.0" style="-fx-text-fill: #f0f0f0;" styleClass="bt" stylesheets="/com/xianyu/client/css/mainpanel.css" text="Page 03" textAlignment="JUSTIFY">
-               <font>
-                  <Font name="System Bold" size="17.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button fx:id="page04" mnemonicParsing="false" onAction="#loadPage04View" prefHeight="30.0" prefWidth="168.0" style="-fx-text-fill: #f0f0f0;" styleClass="bt" stylesheets="/com/xianyu/client/css/mainpanel.css" text="Page 04" textAlignment="JUSTIFY">
-               <font>
-                  <Font name="System Bold" size="17.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button fx:id="page05" mnemonicParsing="false" onAction="#loadPage05View" prefHeight="30.0" prefWidth="168.0" style="-fx-text-fill: #f0f0f0;" styleClass="bt" stylesheets="/com/xianyu/client/css/mainpanel.css" text="Page 05" textAlignment="JUSTIFY">
-               <font>
-                  <Font name="System Bold" size="17.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button fx:id="page06" mnemonicParsing="false" onAction="#loadPage06View" prefHeight="30.0" prefWidth="168.0" style="-fx-text-fill: #f0f0f0;" styleClass="bt" stylesheets="/com/xianyu/client/css/mainpanel.css" text="Page 06" textAlignment="JUSTIFY">
-               <font>
-                  <Font name="System Bold" size="17.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button fx:id="page07" mnemonicParsing="false" onAction="#loadPage07View" prefHeight="30.0" prefWidth="168.0" style="-fx-text-fill: #f0f0f0;" styleClass="bt" stylesheets="/com/xianyu/client/css/mainpanel.css" text="Page 07" textAlignment="JUSTIFY">
-               <font>
-                  <Font name="System Bold" size="17.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button fx:id="page08" mnemonicParsing="false" onAction="#loadPage08View" prefHeight="30.0" prefWidth="168.0" style="-fx-text-fill: #f0f0f0;" styleClass="bt" stylesheets="/com/xianyu/client/css/mainpanel.css" text="Page 08" textAlignment="JUSTIFY">
-               <font>
-                  <Font name="System Bold" size="17.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button fx:id="page09" mnemonicParsing="false" onAction="#loadPage09View" prefHeight="30.0" prefWidth="168.0" style="-fx-text-fill: #f0f0f0;" styleClass="bt" stylesheets="/com/xianyu/client/css/mainpanel.css" text="Page 09" textAlignment="JUSTIFY">
-               <font>
-                  <Font name="System Bold" size="17.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button fx:id="page10" mnemonicParsing="false" onAction="#loadPage10View" prefHeight="30.0" prefWidth="168.0" style="-fx-text-fill: #f0f0f0;" styleClass="bt" stylesheets="/com/xianyu/client/css/mainpanel.css" text="Page 10" textAlignment="JUSTIFY">
-               <font>
-                  <Font name="System Bold" size="17.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-         </children>
-      </VBox>
-   </left>
-   <top>
-      <HBox alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="1360.0" style="-fx-background-color: #2b2a26;" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="logout" mnemonicParsing="false" onAction="#close" prefHeight="18.0" prefWidth="74.0" style="-fx-text-fill: #f0f0f0;" styleClass="bt" stylesheets="/com/xianyu/client/css/mainpanel.css" text="Log Out" textAlignment="JUSTIFY">
+            <Button fx:id="QHSE" onAction="#loadQHSEView" style = "-fx-border-color: #F3F2F1;-fx-background-color: #F3F2F1;"  text="QHSE">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <HBox.margin>
-                  <Insets right="4.0" />
-               </HBox.margin>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
+            </Button>
+            <Button fx:id="operations" onAction="#loadOperationsView" style = "-fx-border-color: #F3F2F1;-fx-background-color: #F3F2F1;"  text="operations">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="settings" onAction="#loadSettingsView" style = "-fx-border-color: #F3F2F1;-fx-background-color: #F3F2F1;"  text="settings">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
             </Button>
          </children>
-         <BorderPane.margin>
-            <Insets right="5.0" />
-         </BorderPane.margin></HBox>
+      </HBox>
    </top>
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">

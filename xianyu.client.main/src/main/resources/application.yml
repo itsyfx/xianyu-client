@@ -4,4 +4,10 @@ spring:
   cloud:
       nacos:
         discovery:
-          server-addr: 124.71.181.121:8848
+          username: nacos
+          password: nacos
+          server-addr: 192.168.146.131:8848
+
+logging:
+  level:
+    feign.Logger: debug

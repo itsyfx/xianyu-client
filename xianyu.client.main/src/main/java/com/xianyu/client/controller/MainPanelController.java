@@ -9,6 +9,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.xianyu.client.common.constant.FxmlConstant;
+
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,7 +22,11 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Region;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.scene.Node;
 
 public class MainPanelController implements Initializable {
 
@@ -47,18 +53,27 @@ public class MainPanelController implements Initializable {
     }
 
     private void changeButtonBackground(ActionEvent e) {
-        Iterator<Button> iteratorMenus = menus.iterator();
+        
+        ObservableList<Node> nodes = ((HBox)(borderPane.getTop())).getChildren();
+        Button clickedButton = (Button) e.getSource();
+        VBox vBox = null;
+        int index = -1;
+        for(int i = 0;i < nodes.size();i++){
+            Button button = (Button)nodes.get(i);
+            if (clickedButton == button) {
+                Region line = new Region();
+                line.setMinHeight(1);
+                line.setMaxHeight(1);
+                line.setStyle("-fx-background-color: black;");
+                vBox = new VBox(button, line);
+                index = i;
+                break;
+            } 
+        }
 
-        while (iteratorMenus.hasNext()) {
-            Button clickedButton = (Button) e.getSource();
-            Button OtherButton = iteratorMenus.next();
-            if (clickedButton == OtherButton) {
-                clickedButton.setStyle("-fx-text-fill:#f0f0f0;-fx-background-color:#2b2a26;");
-            } else {
-                if (OtherButton != null) {
-                    OtherButton.setStyle("-fx-text-fill:#f0f0f0;-fx-background-color:#404040;");
-                }
-            }
+        if(index > -1){
+            nodes.remove(index);
+            nodes.add(index, vBox);
         }
 
     }
@@ -97,62 +112,32 @@ public class MainPanelController implements Initializable {
     }
 
     @FXML
-    private void loadPage01View(ActionEvent e) {
+    private void loadProcurementView(ActionEvent e) {
         loadFXML("Page01View");
         changeButtonBackground(e);
     }
 
     @FXML
-    private void loadPage02View(ActionEvent e) {
+    private void loadMaintenancetView(ActionEvent e) {
         loadFXML("Page02View");
         changeButtonBackground(e);
     }
 
     @FXML
-    private void loadPage03View(ActionEvent e) {
+    private void loadQHSEView(ActionEvent e) {
         loadFXML("Page03View");
         changeButtonBackground(e);
     }
 
     @FXML
-    private void loadPage04View(ActionEvent e) {
+    private void loadOperationsView(ActionEvent e) {
         loadFXML("Page04View");
         changeButtonBackground(e);
     }
 
     @FXML
-    private void loadPage05View(ActionEvent e) {
+    private void loadSettingsView(ActionEvent e) {
         loadFXML("Page05View");
-        changeButtonBackground(e);
-    }
-
-    @FXML
-    private void loadPage06View(ActionEvent e) {
-        loadFXML("Page06View");
-        changeButtonBackground(e);
-    }
-
-    @FXML
-    private void loadPage07View(ActionEvent e) {
-        loadFXML("Page07View");
-        changeButtonBackground(e);
-    }
-
-    @FXML
-    private void loadPage08View(ActionEvent e) {
-        loadFXML("Page08View");
-        changeButtonBackground(e);
-    }
-
-    @FXML
-    private void loadPage09View(ActionEvent e) {
-        loadFXML("Page09View");
-        changeButtonBackground(e);
-    }
-
-    @FXML
-    private void loadPage10View(ActionEvent e) {
-        loadFXML("Page10View");
         changeButtonBackground(e);
     }
 
