@@ -8,6 +8,8 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.springframework.util.CollectionUtils;
+
 import com.xianyu.client.common.constant.FxmlConstant;
 
 import javafx.collections.ObservableList;
@@ -15,6 +17,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.AreaChart;
@@ -59,23 +62,48 @@ public class MainPanelController implements Initializable {
         VBox vBox = null;
         int index = -1;
         for(int i = 0;i < nodes.size();i++){
-            Button button = (Button)nodes.get(i);
-            if (clickedButton == button) {
-                Region line = new Region();
-                line.setMinHeight(1);
-                line.setMaxHeight(1);
-                line.setStyle("-fx-background-color: black;");
-                vBox = new VBox(button, line);
-                index = i;
-                break;
-            } 
+
+            Node node = nodes.get(i);
+            if(node instanceof Button){
+                Button button = (Button)node;
+                if (clickedButton == button) {
+                    Region line = new Region();
+                    line.setMinHeight(1);
+                    line.setMaxHeight(1);
+                    line.setStyle("-fx-background-color: black;");
+                    vBox = new VBox(button, line);
+                    index = i;
+                    break;
+                } 
+            }else if(node instanceof VBox){
+                VBox exist = (VBox)node;
+                ObservableList<Node> children = exist.getChildren();
+                if(CollectionUtils.isEmpty(children)){
+                    continue;
+                }
+                Button button = (Button)children.get(0);
+                if (clickedButton == button && children.size() == 1) {
+                    Region line = new Region();
+                    line.setMinHeight(1);
+                    line.setMaxHeight(1);
+                    line.setStyle("-fx-background-color: black;");
+                    exist.getChildren().add(line);
+                    //break;
+                }else{
+                    if(children.size() >= 2){
+                        children.remove(1);
+                    }
+                }
+            }else{
+                System.out.println("unexpect node type!");
+            }
+            
         }
 
         if(index > -1){
-            nodes.remove(index);
             nodes.add(index, vBox);
         }
-
+      
     }
 
     @FXML

@@ -13,46 +13,66 @@
    <top>
       <HBox BorderPane.alignment="CENTER_LEFT">
          <children>
-            <Button fx:id="procurement" onAction="#loadProcurementView"   text="procurement" style = "-fx-border-color: #F3F2F1;-fx-background-color: #F3F2F1;">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-            <Button fx:id="maintenance" onAction="#loadMaintenancetView" style = "-fx-border-color: #F3F2F1;-fx-background-color: #F3F2F1;"  text="maintenance">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-            <Button fx:id="QHSE" onAction="#loadQHSEView" style = "-fx-border-color: #F3F2F1;-fx-background-color: #F3F2F1;"  text="QHSE">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-            <Button fx:id="operations" onAction="#loadOperationsView" style = "-fx-border-color: #F3F2F1;-fx-background-color: #F3F2F1;"  text="operations">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-            <Button fx:id="settings" onAction="#loadSettingsView" style = "-fx-border-color: #F3F2F1;-fx-background-color: #F3F2F1;"  text="settings">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
+            <VBox BorderPane.alignment="TOP_LEFT">
+               <children>
+                  <Button fx:id="procurement" onAction="#loadProcurementView"   text="procurement" style = "-fx-border-color: #F3F2F1;-fx-background-color: #F3F2F1;">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox BorderPane.alignment="TOP_LEFT">
+               <children>
+                  <Button fx:id="maintenance" onAction="#loadMaintenancetView" style = "-fx-border-color: #F3F2F1;-fx-background-color: #F3F2F1;"  text="maintenance">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox BorderPane.alignment="TOP_LEFT">
+               <children>
+                  <Button fx:id="QHSE" onAction="#loadQHSEView" style = "-fx-border-color: #F3F2F1;-fx-background-color: #F3F2F1;"  text="QHSE">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox BorderPane.alignment="TOP_LEFT">
+               <children>
+                  <Button fx:id="operations" onAction="#loadOperationsView" style = "-fx-border-color: #F3F2F1;-fx-background-color: #F3F2F1;"  text="operations">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox BorderPane.alignment="TOP_LEFT">
+               <children>
+                  <Button fx:id="settings" onAction="#loadSettingsView" style = "-fx-border-color: #F3F2F1;-fx-background-color: #F3F2F1;"  text="settings">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
          </children>
       </HBox>
    </top>

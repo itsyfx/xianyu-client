@@ -7,18 +7,24 @@ package com.xianyu.client.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Separator;
+import javafx.scene.layout.BorderPane;
 
 /**
  *
  * @author Ramesh Godara
  */
-public class Page01Controller implements Initializable {
+public class ProcurementController implements Initializable {
 
+    @FXML
+    private BorderPane borderPane;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+       //Separator
         
     }
 }
