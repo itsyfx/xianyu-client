@@ -52,7 +52,7 @@ public class MainPanelController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        loadFXML("Page01View");
     }
 
     private void changeButtonBackground(ActionEvent e) {
@@ -116,8 +116,9 @@ public class MainPanelController implements Initializable {
         Parent parent;
         try {
             parent = FXMLLoader.load(getClass().getResource("../fxml/" + fileName + ".fxml"));
-            borderPane.setCenter(parent);
-
+            VBox center = (VBox)borderPane.getCenter();
+            center.getChildren().clear();
+            center.getChildren().add(parent);
         } catch (IOException ex) {
             Logger.getLogger(MainPanelController.class.getName()).log(Level.SEVERE, null, ex);
         }

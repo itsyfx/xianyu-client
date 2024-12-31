@@ -63,7 +63,7 @@ public class LoginController implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource(FxmlConstant.HOME_FXML));
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setTitle("Admin Panel");
+        stage.setTitle("Seacon SSM Demo Client");
         stage.getIcons().add(new Image(FxmlConstant.ICON_PNG));
         stage.show();
 
