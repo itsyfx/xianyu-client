@@ -1,82 +1,378 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1350.0" style="-fx-background-color: #F3F2F1;"
-            xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.xianyu.client.controller.MainPanelController">
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="830.0" prefWidth="1350.0" style="-fx-background-color: #F3F2F1;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.xianyu.client.controller.MainPanelController">
    <top>
-      <HBox BorderPane.alignment="CENTER_LEFT">
+      <VBox BorderPane.alignment="CENTER_LEFT">
          <children>
-            <VBox BorderPane.alignment="TOP_LEFT">
+            <HBox>
                <children>
-                  <Button fx:id="procurement" onAction="#loadProcurementView"   text="procurement" style = "-fx-border-color: #F3F2F1;-fx-background-color: #F3F2F1;">
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
+                  <VBox BorderPane.alignment="TOP_LEFT">
+                     <children>
+                        <Button fx:id="procurement" onAction="#loadProcurementView" style="-fx-border-color: #F3F2F1;-fx-background-color: #F3F2F1;" text="procurement">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <VBox BorderPane.alignment="TOP_LEFT">
+                     <children>
+                        <Button fx:id="maintenance" onAction="#loadMaintenancetView" style="-fx-border-color: #F3F2F1;-fx-background-color: #F3F2F1;" text="maintenance">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <VBox BorderPane.alignment="TOP_LEFT">
+                     <children>
+                        <Button fx:id="QHSE" onAction="#loadQHSEView" style="-fx-border-color: #F3F2F1;-fx-background-color: #F3F2F1;" text="QHSE">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <VBox BorderPane.alignment="TOP_LEFT">
+                     <children>
+                        <Button fx:id="operations" onAction="#loadOperationsView" style="-fx-border-color: #F3F2F1;-fx-background-color: #F3F2F1;" text="operations">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <VBox BorderPane.alignment="TOP_LEFT">
+                     <children>
+                        <Button fx:id="settings" onAction="#loadSettingsView" style="-fx-border-color: #F3F2F1;-fx-background-color: #F3F2F1;" text="settings">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
                </children>
-            </VBox>
-            <VBox BorderPane.alignment="TOP_LEFT">
+            </HBox>
+            <VBox prefWidth="1350.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="maintenance" onAction="#loadMaintenancetView" style = "-fx-border-color: #F3F2F1;-fx-background-color: #F3F2F1;"  text="maintenance">
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox fx:id="carVBox" alignment="CENTER_LEFT">
+                                       <children>
+                                          <HBox alignment="CENTER">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../asset/car.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </HBox>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Procurement" />
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <HBox fx:id="v1" alignment="CENTER">
+                                             <children>
+                                                <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../asset/car1.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Procurement" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Procurement" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <Separator orientation="VERTICAL" prefHeight="100.0" prefWidth="18.0" />
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox alignment="CENTER_LEFT">
+                                       <children>
+                                          <HBox alignment="CENTER">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../asset/circle.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </HBox>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Supplier directory" />
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <HBox fx:id="v2" alignment="CENTER_LEFT">
+                                             <children>
+                                                <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../asset/circle1.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Suppliers" />
+                                             </children>
+                                          </HBox>
+                                          <HBox fx:id="v3" alignment="CENTER">
+                                             <children>
+                                                <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../asset/circle2.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Admin suppliers" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Suppliers" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <Separator orientation="VERTICAL" prefHeight="100.0" prefWidth="18.0" />
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox alignment="CENTER_LEFT">
+                                       <children>
+                                          <HBox alignment="CENTER">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../asset/cube.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </HBox>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Stock overview" />
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <HBox fx:id="v4" alignment="CENTER_LEFT">
+                                             <children>
+                                                <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../asset/cube1.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Admin stock fleet" />
+                                             </children>
+                                          </HBox>
+                                          <HBox fx:id="v5" alignment="CENTER">
+                                             <children>
+                                                <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../asset/cube2.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Admin stock vessel" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Inventory" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <Separator orientation="VERTICAL" prefHeight="100.0" prefWidth="18.0" />
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox alignment="CENTER_LEFT">
+                                       <children>
+                                          <HBox alignment="CENTER">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../asset/calc.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </HBox>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Budgeting" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="40.0" prefWidth="121.0">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../asset/money.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </HBox>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Admin accounts" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Accounting" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <Separator orientation="VERTICAL" prefHeight="100.0" prefWidth="18.0" />
+                        <VBox alignment="CENTER_RIGHT" fillWidth="false">
+                           <children>
+                              <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="446.0">
+                                 <children>
+                                    <VBox fx:id="v6" alignment="CENTER_RIGHT">
+                                       <children>
+                                          <HBox alignment="CENTER">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../asset/dashboard.png" />
+                                                   </image>
+                                                   <HBox.margin>
+                                                      <Insets />
+                                                   </HBox.margin>
+                                                </ImageView>
+                                             </children>
+                                          </HBox>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard" />
+                                       </children>
+                                       <padding>
+                                          <Insets right="20.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox fx:id="v7" alignment="CENTER_RIGHT">
+                                       <children>
+                                          <HBox alignment="CENTER">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../asset/docs.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </HBox>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Documents" />
+                                       </children>
+                                       <padding>
+                                          <Insets right="20.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox fx:id="v8" alignment="CENTER_RIGHT">
+                                       <children>
+                                          <HBox alignment="CENTER">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../asset/idm.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </HBox>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="IDM" />
+                                       </children>
+                                       <padding>
+                                          <Insets right="20.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox fx:id="v9" alignment="CENTER_RIGHT">
+                                       <children>
+                                          <HBox alignment="CENTER">
+                                             <children>
+                                                <ImageView fitHeight="40.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../asset/profile.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </HBox>
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="My profile" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Separator prefHeight="10.0" prefWidth="600.0" />
                </children>
-            </VBox>
-            <VBox BorderPane.alignment="TOP_LEFT">
-               <children>
-                  <Button fx:id="QHSE" onAction="#loadQHSEView" style = "-fx-border-color: #F3F2F1;-fx-background-color: #F3F2F1;"  text="QHSE">
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-               </children>
-            </VBox>
-            <VBox BorderPane.alignment="TOP_LEFT">
-               <children>
-                  <Button fx:id="operations" onAction="#loadOperationsView" style = "-fx-border-color: #F3F2F1;-fx-background-color: #F3F2F1;"  text="operations">
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-               </children>
-            </VBox>
-            <VBox BorderPane.alignment="TOP_LEFT">
-               <children>
-                  <Button fx:id="settings" onAction="#loadSettingsView" style = "-fx-border-color: #F3F2F1;-fx-background-color: #F3F2F1;"  text="settings">
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
             </VBox>
          </children>
-      </HBox>
+      </VBox>
    </top>
    <center>
       <VBox BorderPane.alignment="TOP_LEFT" />
    </center>
+   <bottom>
+      <VBox prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Separator prefWidth="200.0" />
+            <HBox alignment="CENTER_RIGHT" prefWidth="1350.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="https://www.seacon.com      " />
+                  <Text fx:id="time" strokeType="OUTSIDE" strokeWidth="0.0" text="  " />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="  " />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </bottom>
 </BorderPane>

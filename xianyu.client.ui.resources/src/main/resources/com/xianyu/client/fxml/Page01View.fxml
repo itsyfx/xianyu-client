@@ -1,275 +1,293 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1187.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="657.0" prefWidth="1350.0"
+            xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.xianyu.client.controller.Page01Controller">
    <top>
-      <VBox prefWidth="1187.0" BorderPane.alignment="CENTER">
+      <VBox BorderPane.alignment="CENTER">
          <children>
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="200.0">
                <children>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" text="Proceurement" wrappingWidth="151.44024276733398">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Text>
+               </children>
+            </HBox>
+            <Separator prefWidth="200.0" style="-fx-background-color: black;" />
+         </children>
+      </VBox>
+   </top>
+   <left>
+      <HBox prefHeight="466.0" prefWidth="230.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="300.0">
+               <children>
+                  <ScrollPane fx:id="scrollPane" prefHeight="200.0">
+                    <content>
+                       <AnchorPane />
+                    </content>
+                  </ScrollPane>
+                  <VBox>
                      <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" prefHeight="30.0">
                            <children>
-                              <VBox alignment="CENTER_LEFT">
+                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                                  <children>
-                                    <HBox alignment="CENTER">
-                                       <children>
-                                          <ImageView fitHeight="40.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../asset/car.png" />
-                                             </image>
-                                          </ImageView>
-                                       </children>
-                                    </HBox>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Procurement" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Case Details" />
                                  </children>
                               </VBox>
-                              <VBox prefHeight="200.0" prefWidth="100.0">
+                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                                  <children>
-                                    <HBox alignment="CENTER">
-                                       <children>
-                                          <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../asset/car1.png" />
-                                             </image>
-                                          </ImageView>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Procurement" />
-                                       </children>
-                                    </HBox>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="  Activity log" />
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="All docs" />
                                  </children>
                               </VBox>
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER">
+                        <Separator prefWidth="200.0" />
+                     </children>
+                  </VBox>
+                  <VBox prefWidth="254.0">
+                     <children>
+                        <HBox prefHeight="20.0" prefWidth="200.0">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Procurement" />
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ref.no:" />
+                              <Text fx:id="refNum" strokeType="OUTSIDE" strokeWidth="0.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="20.0" prefWidth="200.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vessel:" />
+                              <Text fx:id="vessel" strokeType="OUTSIDE" strokeWidth="0.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="20.0" prefWidth="200.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Brand:" />
+                              <Text fx:id="brand" strokeType="OUTSIDE" strokeWidth="0.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="20.0" prefWidth="200.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Type:" />
+                              <Text fx:id="type" strokeType="OUTSIDE" strokeWidth="0.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="20.0" prefWidth="200.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Label:" />
+                              <Text fx:id="label" strokeType="OUTSIDE" strokeWidth="0.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="20.0" prefWidth="200.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date:" />
+                              <Text fx:id="date" strokeType="OUTSIDE" strokeWidth="0.0" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="200.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Owner:" />
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="              " />
+                                    <ComboBox prefHeight="23.0" prefWidth="127.0" style="-fx-background-color: white; -fx-border-color: gray;" />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="3.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="200.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Manual status:" />
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="  " />
+                                    <ComboBox fx:id="status" prefHeight="23.0" prefWidth="127.0" style="-fx-background-color: white; -fx-border-color: gray;" />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="3.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="200.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Uergency:" />
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="         " />
+                                    <ComboBox fx:id="urgency" prefHeight="23.0" prefWidth="127.0" style="-fx-background-color: white; -fx-border-color: gray;" />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="3.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="200.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Area:" />
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="                 " />
+                                    <ComboBox prefHeight="23.0" prefWidth="127.0" style="-fx-background-color: white; -fx-border-color: gray;" />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="3.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="200.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Subject:" />
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="            " />
+                                    <TextField fx:id="subject" prefHeight="25.0" prefWidth="128.0" style="-fx-background-color: white; -fx-border-color: gray;" />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="3.0" />
+                           </padding>
+                        </HBox>
+                        <HBox prefHeight="100.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Remark:" />
+                              <HBox alignment="CENTER" prefHeight="100.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="            " />
+                                    <TextArea fx:id="remark" prefHeight="98.0" prefWidth="128.0" style="-fx-background-color: white; -fx-border-color: gray;" />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="3.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="save" mnemonicParsing="false" style="-fx-background-radius: 0; -fx-border-radius: 0; -fx-background-color: #205081;" text=" Save " textFill="WHITE" />
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="  " />
+                              <Button fx:id="cancel" mnemonicParsing="false" style="-fx-background-radius: 0; -fx-border-radius: 0; -fx-background-color: lightgray;" text="Cancel" textFill="WHITE" />
+                           </children>
+                           <padding>
+                              <Insets bottom="3.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </VBox>
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
+         </children>
+      </HBox>
+   </left>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="1120.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: lightgray;">
+               <children>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 15;" text="Procurement cases" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Separator prefWidth="200.0" />
+            <VBox prefHeight="138.0" prefWidth="1120.0">
+               <children>
+                  <HBox prefWidth="200.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="30.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pending items:  " />
+                              <ComboBox prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: white; -fx-border-color: gray;" />
                            </children>
                         </HBox>
                      </children>
-                  </VBox>
-                  <Separator orientation="VERTICAL" prefHeight="100.0" prefWidth="18.0" />
-                  <VBox prefHeight="200.0" prefWidth="100.0">
+                  </HBox>
+                  <HBox prefWidth="200.0">
                      <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" prefHeight="30.0">
                            <children>
-                              <VBox alignment="CENTER_LEFT">
-                                 <children>
-                                    <HBox alignment="CENTER">
-                                       <children>
-                                          <ImageView fitHeight="40.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../asset/circle.png" />
-                                             </image>
-                                          </ImageView>
-                                       </children>
-                                    </HBox>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Supplier directory" />
-                                 </children>
-                              </VBox>
-                              <VBox prefHeight="200.0" prefWidth="100.0">
-                                 <children>
-                                    <HBox alignment="CENTER_LEFT">
-                                       <children>
-                                          <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../asset/circle1.png" />
-                                             </image>
-                                          </ImageView>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Suppliers" />
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER">
-                                       <children>
-                                          <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../asset/circle2.png" />
-                                             </image>
-                                          </ImageView>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Admin suppliers" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Suppliers" />
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Search:              " />
+                              <ComboBox prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: white; -fx-border-color: gray;" />
                            </children>
                         </HBox>
                      </children>
-                  </VBox>
-                  <Separator orientation="VERTICAL" prefHeight="100.0" prefWidth="18.0" />
-                  <VBox prefHeight="200.0" prefWidth="100.0">
+                  </HBox>
+                  <HBox prefWidth="200.0">
                      <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" prefHeight="30.0">
                            <children>
-                              <VBox alignment="CENTER_LEFT">
-                                 <children>
-                                    <HBox alignment="CENTER">
-                                       <children>
-                                          <ImageView fitHeight="40.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../asset/cube.png" />
-                                             </image>
-                                          </ImageView>
-                                       </children>
-                                    </HBox>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Stock overview" />
-                                 </children>
-                              </VBox>
-                              <VBox prefHeight="200.0" prefWidth="100.0">
-                                 <children>
-                                    <HBox alignment="CENTER_LEFT">
-                                       <children>
-                                          <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../asset/cube1.png" />
-                                             </image>
-                                          </ImageView>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Admin stock fleet" />
-                                       </children>
-                                    </HBox>
-                                    <HBox alignment="CENTER">
-                                       <children>
-                                          <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../asset/cube2.png" />
-                                             </image>
-                                          </ImageView>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Admin stock vessel" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Inventory" />
+                              <Button mnemonicParsing="false" style="-fx-background-radius: 0; -fx-border-radius: 0; -fx-background-color: #205081;" text="🔍 Search" textFill="WHITE">
+                                 <rotationAxis>
+                                    <Point3D />
+                                 </rotationAxis>
+                              </Button>
                            </children>
                         </HBox>
                      </children>
-                  </VBox>
-                  <Separator orientation="VERTICAL" prefHeight="100.0" prefWidth="18.0" />
-                  <VBox prefHeight="200.0" prefWidth="100.0">
+                  </HBox>
+                  <HBox prefWidth="200.0">
                      <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                        <HBox alignment="CENTER" prefHeight="30.0">
                            <children>
-                              <VBox alignment="CENTER_LEFT">
-                                 <children>
-                                    <HBox alignment="CENTER">
-                                       <children>
-                                          <ImageView fitHeight="40.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../asset/calc.png" />
-                                             </image>
-                                          </ImageView>
-                                       </children>
-                                    </HBox>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Budgeting" />
-                                 </children>
-                              </VBox>
-                              <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0">
-                                 <children>
-                                    <HBox alignment="CENTER" prefHeight="40.0" prefWidth="121.0">
-                                       <children>
-                                          <ImageView fitHeight="40.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../asset/money.png" />
-                                             </image>
-                                          </ImageView>
-                                       </children>
-                                    </HBox>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Admin accounts" />
-                                 </children>
-                              </VBox>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Procerument  cases" />
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER">
-                           <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Accounting" />
-                           </children>
-                        </HBox>
-                     </children>
-                  </VBox>
-                  <Separator orientation="VERTICAL" prefHeight="100.0" prefWidth="18.0" />
-                  <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <VBox alignment="CENTER_RIGHT">
-                           <children>
-                              <HBox alignment="CENTER">
-                                 <children>
-                                    <ImageView fitHeight="40.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../asset/profile.png" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
-                              </HBox>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="My profile" />
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER_RIGHT">
-                           <children>
-                              <HBox alignment="CENTER">
-                                 <children>
-                                    <ImageView fitHeight="40.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../asset/profile.png" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
-                              </HBox>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="My profile" />
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER_RIGHT">
-                           <children>
-                              <HBox alignment="CENTER">
-                                 <children>
-                                    <ImageView fitHeight="40.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../asset/profile.png" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
-                              </HBox>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="My profile" />
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER_RIGHT">
-                           <children>
-                              <HBox alignment="CENTER">
-                                 <children>
-                                    <ImageView fitHeight="40.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../asset/profile.png" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
-                              </HBox>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="My profile" />
-                           </children>
-                        </VBox>
                      </children>
                   </HBox>
                </children>
+            </VBox>
+            <VBox prefWidth="1120.0">
+               <children>
+                  <TableView fx:id="tableView" prefHeight="422.0" prefWidth="1120.0" />
+               </children>
+            </VBox>
+            <HBox prefWidth="200.0">
+               <children>
+                  <Button mnemonicParsing="false" style="-fx-background-radius: 0; -fx-border-radius: 0; -fx-background-color: lightgray;" text="Details" textFill="WHITE" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="  " />
+                  <Button mnemonicParsing="false" style="-fx-background-radius: 0; -fx-border-radius: 0; -fx-background-color: lightgray;" text="Details detached" textFill="WHITE" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="  " />
+                  <Button mnemonicParsing="false" style="-fx-background-radius: 0; -fx-border-radius: 0; -fx-background-color: lightgray;" text="Add request template" textFill="WHITE" />
+               </children>
+               <padding>
+                  <Insets top="5.0" />
+               </padding>
             </HBox>
-            <Separator prefHeight="10.0" prefWidth="600.0" />
          </children>
-         <padding>
-            <Insets top="10.0" />
-         </padding>
       </VBox>
-   </top>
+   </center>
 </BorderPane>

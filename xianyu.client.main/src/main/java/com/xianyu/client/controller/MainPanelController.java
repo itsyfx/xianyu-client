@@ -2,12 +2,21 @@ package com.xianyu.client.controller;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.time.LocalDateTime;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import com.xianyu.client.common.utils.DateUtils;
+import javafx.animation.ScaleTransition;
+import javafx.event.EventHandler;
+import javafx.geometry.Pos;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.util.Duration;
 import org.springframework.util.CollectionUtils;
 
 import com.xianyu.client.common.constant.FxmlConstant;
@@ -17,7 +26,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.AreaChart;
@@ -47,17 +55,141 @@ public class MainPanelController implements Initializable {
     @FXML
     private LineChart<?, ?> chartReceipt;
 
+    @FXML
+    private Button procurement;
+
+    @FXML
+    private Button maintenance;
+
+    @FXML
+    private Button QHSE;
+
+    @FXML
+    private Button operations;
+
+    @FXML
+    private Button settings;
+
+    @FXML
+    private HBox v1;
+
+    @FXML
+    private HBox v2;
+
+    @FXML
+    private HBox v3;
+
+    @FXML
+    private HBox v4;
+
+    @FXML
+    private HBox v5;
+
+    @FXML
+    private VBox v6;
+
+    @FXML
+    private VBox v7;
+
+    @FXML
+    private VBox v8;
+
+    @FXML
+    private VBox v9;
+
+    @FXML
+    private Text time;
+
+    private Timer timer = new Timer();
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         loadFXML("Page01View");
+        initButtonAction(procurement);
+        initButtonAction(maintenance);
+        initButtonAction(QHSE);
+        initButtonAction(operations);
+        initButtonAction(settings);
+        initButtonAction(v1);
+        initButtonAction(v2);
+        initButtonAction(v3);
+        initButtonAction(v4);
+        initButtonAction(v5);
+        initButtonAction(v6);
+        initButtonAction(v7);
+        initButtonAction(v8);
+        initButtonAction(v9);
+
+        initButtonTime();
+
+        v9.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                // 创建一个新的Stage作为弹窗
+                Stage popupStage = new Stage();
+                popupStage.setTitle("My profile");
+
+                // 创建弹窗的内容
+                VBox popupVBox = new VBox();
+                popupVBox.setPrefSize(500, 200);
+                popupVBox.setStyle("-fx-background-color: lightgray;");
+                Text text = new Text("this is a popup show!!");
+                text.setFont(Font.font("Arial", 24));
+                HBox content = new HBox();
+                content.setPrefSize(500,100);
+                content.setAlignment(Pos.BOTTOM_CENTER);
+                popupVBox.setAlignment(Pos.CENTER);
+                popupVBox.getChildren().add(text);
+                // 创建场景并设置到弹窗
+                Scene popupScene = new Scene(popupVBox);
+                popupStage.setScene(popupScene);
+
+                // 显示弹窗
+                popupStage.show();
+            }
+        });
+    }
+
+    private void initButtonTime() {
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                time.setText(DateUtils.getDateStr(LocalDateTime.now()));
+            }
+        },100,1000);
+    }
+
+    private void initButtonAction(Node button) {
+        ScaleTransition scaleTransition = new ScaleTransition(Duration.millis(200), button);
+        scaleTransition.setAutoReverse(true);
+
+        // 设置鼠标进入事件
+        button.setOnMouseEntered(event -> {
+            scaleTransition.setToX(1.1);
+            scaleTransition.setToY(1.1);
+            scaleTransition.playFromStart();
+        });
+
+        // 设置鼠标离开事件
+        button.setOnMouseExited(event -> {
+            scaleTransition.stop();
+            scaleTransition.setRate(-1);
+            scaleTransition.setToX(1);
+            scaleTransition.setToY(1);
+            scaleTransition.playFromStart();
+            scaleTransition.setOnFinished(finishEvent -> {
+                scaleTransition.setRate(1);
+            });
+        });
+
     }
 
     private void changeButtonBackground(ActionEvent e) {
         
-        ObservableList<Node> nodes = ((HBox)(borderPane.getTop())).getChildren();
+        ObservableList<Node> nodes = ((HBox)(((VBox)(borderPane.getTop())).getChildren().get(0))).getChildren();
         Button clickedButton = (Button) e.getSource();
         VBox vBox = null;
         int index = -1;
@@ -174,5 +306,15 @@ public class MainPanelController implements Initializable {
     private void loadHomeView(ActionEvent e) {
         loadFXML("HomeView");
         changeButtonBackground(e);
+    }
+
+    @FXML
+    private void menuIn(ActionEvent e){
+
+    }
+
+    @FXML
+    private void menuOut(ActionEvent e){
+
     }
 }
